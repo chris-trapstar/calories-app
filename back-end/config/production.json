@@ -1,0 +1,7 @@
+{
+  "db": {	
+    "type": "sqlite",	
+    "database": "data.db",	
+    "synchronize": false
+  }
+}
