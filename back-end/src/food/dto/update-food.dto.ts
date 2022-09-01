@@ -21,4 +21,13 @@ export class UpdateFoodDto {
     }
   )
   calorieValue: Number;
+  @IsDefined()
+  @IsNumber()
+  @ApiProperty(
+    {
+      description: 'Price',
+      type: Number
+    }
+  )
+  price: Number;
 }

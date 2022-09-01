@@ -84,6 +84,8 @@ export default function Home({ isAdmin }: { isAdmin: boolean }) {
   }, [dateRange]);
 
   useEffect(() => {
+    if (isAdmin === true) return; /** Admin doesn't need to see alerts. */ 
+
     if (foodList.length === 0) {
       setPrices([]);
       setCalories([]);

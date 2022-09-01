@@ -26,6 +26,7 @@ export class FoodService extends TypeOrmCrudService<Food> {
     const foodToUpdate = await this.foodRepository.findOne({ where: { id } });
     foodToUpdate.calorieValue = dto.calorieValue;
     foodToUpdate.name = dto.name;
+    foodToUpdate.price = dto.price;
     return this.foodRepository.save(foodToUpdate);
   }
 
