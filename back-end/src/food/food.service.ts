@@ -1,6 +1,5 @@
 
 import { Injectable, Inject } from '@nestjs/common';
-import { CrudRequest } from '@nestjsx/crud';
 import { TypeOrmCrudService } from '@nestjsx/crud-typeorm';
 import { Repository } from 'typeorm';
 import { CreateFoodDto } from './dto/create-food.dto';
@@ -16,13 +15,13 @@ export class FoodService extends TypeOrmCrudService<Food> {
     super(foodRepository);
   }
 
-  async create(dto: CreateFoodDto,userId:number): Promise<Food> {
+  async create(dto: CreateFoodDto, userId: number): Promise<Food> {
     const userToInsert = { ...dto, takenDateTime: new Date(),userId:userId }
     const insertedUser = this.foodRepository.create(userToInsert);
     return this.foodRepository.save(insertedUser);
   }
 
-  async update(id:number,dto: UpdateFoodDto): Promise<Food> {
+  async update(id: number, dto: UpdateFoodDto): Promise<Food> {
     const foodToUpdate = await this.foodRepository.findOne({ where: { id } });
     foodToUpdate.calorieValue = dto.calorieValue;
     foodToUpdate.name = dto.name;

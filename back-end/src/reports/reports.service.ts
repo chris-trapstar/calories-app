@@ -34,7 +34,7 @@ export class ReportsService {
     const groupByDate = groupBy(foodsList, (a) => `${a.user.firstName} ${a.user.lastName}`);
     const res = Object.entries(groupByDate);
     const caloriesGrouped = res.map((gre) => {
-      const currentAverage = gre[1].reduce((a, b) => a +Number(b.calorieValue) , 0)/gre[1].length;
+      const currentAverage = gre[1].reduce((a, b) => a + Number(b.calorieValue), 0) / gre[1].length;
       return { userName: gre[0], average: currentAverage }
     });
     return caloriesGrouped;

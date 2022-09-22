@@ -21,7 +21,7 @@ import { ReportsService } from './reports.service';
   serialize: {
     get: ReportResponseDto,
   },
-  model: {type:ReportResponseDto},
+  model: { type: ReportResponseDto },
   routes: {
     exclude: [
       'createManyBase',
